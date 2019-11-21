@@ -7,12 +7,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function show($slug)
+    public function show()
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
-
-        return view('post', [
-            'post' => $post
-        ]);
+        return view('layout');
     }
 }
