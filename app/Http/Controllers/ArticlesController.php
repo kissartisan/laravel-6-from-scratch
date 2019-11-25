@@ -15,10 +15,10 @@ class ArticlesController extends Controller
         return view('articles.index', compact('articles'));
     }
 
-    public function show($articleId)
+    public function show(Article $article)
     {
         // Show a single resource
-        $article = Article::find($articleId);
+        // $article = Article::find($articleId);
 
         return view('articles.show', ['article' => $article]);
     }
@@ -48,14 +48,14 @@ class ArticlesController extends Controller
         return redirect('/articles');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::find($id);
+        // $article = Article::find($id);
         // Show a view to edit an existing resource
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id)
+    public function update(Article $article)
     {
         request()->validate([
             'title' => 'required',
@@ -63,7 +63,7 @@ class ArticlesController extends Controller
             'body' => 'required'
         ]);
 
-        $article = Article::find($id);
+        // $article = Article::find($id);
         // Persist the edited resource
 
         $article->title = request('title');
