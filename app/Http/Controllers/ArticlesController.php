@@ -30,6 +30,12 @@ class ArticlesController extends Controller
 
     public function store()
     {
+        request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+
         // Persist the new resource
         $article = new Article();
 
@@ -51,6 +57,12 @@ class ArticlesController extends Controller
 
     public function update($id)
     {
+        request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+
         $article = Article::find($id);
         // Persist the edited resource
 
