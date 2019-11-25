@@ -1,12 +1,17 @@
 @extends('layout')
 
 @section('content')
-    <ul class="style1">
-        @foreach($articles as $article)
-        <li class="first">
-            <h3><a href="articles/{{ $article->getKey() }}">{{ $article->title }}</a></h3>
-            <p>{{ $article->excerpt }}</p>
-        </li>
-        @endforeach
-    </ul>
+    @foreach($articles as $article)
+        <div id="wrapper">
+            <div id="page" class="container">
+                <div id="content">
+                    <p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
+                    <div class="title">
+                        <h2><a href="articles/{{ $article->getKey() }}">{{ $article->title }}</a></h2>
+                    </div>
+                    {{ $article->body }}
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection
