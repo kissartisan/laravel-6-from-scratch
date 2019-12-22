@@ -9,8 +9,11 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        // Render a list of resources
-        $articles = Article::get();
+        if (request('tag')) {
+            $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
+        } else {
+            $articles = Article::latest()->get();
+        }
 
         return view('articles.index', compact('articles'));
     }

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    @foreach($articles as $article)
+    @forelse($articles as $article)
         <div id="wrapper">
             <div id="page" class="container">
                 <div id="content">
@@ -13,5 +13,7 @@
                 </div>
             </div>
         </div>
+    @empty
+        <p>No relevant articles yet.</p>
     @endforeach
 @endsection
