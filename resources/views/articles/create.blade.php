@@ -26,6 +26,19 @@
                 @enderror
             </div>
             <div>
+                <label for="tags">Tags</label>
+                <div>
+                    <select name="tags[]" multiple>
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->getKey() }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('tags')
+                    <p>{{ $errors->first('tags') }}</p>
+                @enderror
+            </div>
+            <div>
                 <button type="submit">Submit</button>
             </div>
         </form>

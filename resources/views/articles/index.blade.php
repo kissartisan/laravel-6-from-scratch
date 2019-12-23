@@ -15,5 +15,5 @@
         </div>
     @empty
         <p>No relevant articles yet.</p>
-    @endforeach
+    @endforelse
 @endsection
